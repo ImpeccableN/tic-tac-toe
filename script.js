@@ -1,0 +1,21 @@
+const Gameboard = (function () {
+    let board = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+
+    const fillField = function (fieldNum, symbol) {
+        if (board[fieldNum] != " ") {
+            alert("This field is already in use. Choose another.");
+        } else {
+            board[fieldNum] = symbol;
+        }
+    };
+
+    const drawBoard = function () {
+        console.log("|" + board[0] + "|" + board[1] + "|" + board[2] + "|");
+        console.log("-------");
+        console.log("|" + board[3] + "|" + board[4] + "|" + board[5] + "|");
+        console.log("-------");
+        console.log("|" + board[6] + "|" + board[7] + "|" + board[8] + "|");
+    };
+
+    return {fillField, drawBoard}
+})();
