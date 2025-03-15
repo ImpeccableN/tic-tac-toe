@@ -20,11 +20,27 @@ const Gameboard = (function () {
 
     const resetBoard = () => {board = emptyBoard};
 
-    return {fillField, drawBoard, resetBoard}
+    const checkForWin = function() {
+        if(board[0] !=" "){
+            if(board[0] == board[1] && board[0] == board[2]){
+                //need to change
+                alert("You won!");
+            } else if(board[0] == board[3] && board[0] == board[5]){
+                //need to change
+                alert("You won!");
+            } 
+        } else if(board[3] != " ") {
+            if(board[3] == board[4] && board[3] == board[5]){
+                //need to change
+                alert("You won!");
+            }
+        }
+    };
+
+    return {fillField, drawBoard, resetBoard, checkForWin}
 })();
 
 function createPlayer (name, symbol) {
-    
     return {name, symbol}
 };
 
