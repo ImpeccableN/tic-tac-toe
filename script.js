@@ -22,3 +22,10 @@ const Gameboard = (function () {
 
     return {fillField, drawBoard, resetBoard}
 })();
+
+function createPlayer (name, symbol) {
+    const name = name;
+    const symbol = symbol;
+
+    return {name, symbol}
+};
