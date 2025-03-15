@@ -24,8 +24,18 @@ const Gameboard = (function () {
 })();
 
 function createPlayer (name, symbol) {
-    const name = name;
-    const symbol = symbol;
-
+    
     return {name, symbol}
 };
+
+const Gameloop = (function() {
+    const player1 = createPlayer("Antje", "X");
+    const player2 = createPlayer("Niels", "O");
+
+    Gameboard.drawBoard();
+    let input = prompt(player1.name + ", your turn.");
+    Gameboard.fillField(parseInt(input), player1.symbol);
+    Gameboard.drawBoard();
+}
+
+)();
