@@ -36,6 +36,4 @@ const Gameloop = (function() {
     let input = prompt(player1.name + ", your turn.");
     Gameboard.fillField(parseInt(input), player1.symbol);
     Gameboard.drawBoard();
-}
-
-)();
+})();
