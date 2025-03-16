@@ -82,4 +82,4 @@ const Gameloop = (function() {
         };
     }
     // need to implement tie!
-})();
+});
