@@ -73,7 +73,7 @@ const Gameloop = (function() {
         Gameboard.drawBoard();
         if (Gameboard.checkForWin()){
             alert(currentPlayer.name + " wins!");
-            return;
+            return (true);
         };
         if (currentPlayer == player1){
             currentPlayer = player2;
@@ -81,4 +81,5 @@ const Gameloop = (function() {
             currentPlayer = player1;
         };
     }
+    // need to implement tie!
 })();
