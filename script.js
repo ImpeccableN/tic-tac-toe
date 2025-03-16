@@ -4,7 +4,8 @@ const Gameboard = (function () {
 
     const fillField = function(fieldNum, symbol) {
         if (board[fieldNum] != " ") {
-            alert("This field is already in use. Choose another.");
+            let input = prompt("This field is already in use. Choose another.");
+            fillField(input, symbol);
         } else {
             board[fieldNum] = symbol;
         }
@@ -79,7 +80,7 @@ const Gameloop = (function() {
     Gameboard.drawBoard();
     for (i = 0; i < 5; i++){
         let input = prompt(player1.name + ", your turn.");
-        Gameboard.fillField(parseInt(input), player1.symbol);
+        Gameboard.fillField(parseInt(input), player1.symbol)
         Gameboard.drawBoard();
         Gameboard.checkForWin();
         let input2 = prompt(player2.name + ", your turn.");
@@ -87,5 +88,8 @@ const Gameloop = (function() {
         Gameboard.drawBoard();
         Gameboard.checkForWin();
     }
+
+
+
     return {player1, player2}
 })();
