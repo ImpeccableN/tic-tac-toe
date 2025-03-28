@@ -80,6 +80,7 @@ const Gameloop = (function() {
     Gameboard.drawBoard();
     for (let i = 0; i < 9; i++){
         let input = prompt(currentPlayer.name + ", your turn.");
+        // replace with something to wait for player click
         // Gameboard.fillField(parseInt(input), currentPlayer.symbol);
         Gameboard.drawBoard();
         if (Gameboard.checkForWin()){
