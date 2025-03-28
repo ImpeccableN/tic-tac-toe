@@ -57,6 +57,8 @@ const Gameboard = (function () {
     return {fillField, drawBoard, resetBoard, checkForWin}
 })();
 
+
+
 function createPlayer (name, symbol) {
     return {name, symbol}
 };
@@ -66,10 +68,19 @@ const Gameloop = (function() {
     const player2 = createPlayer("Niels", "O");
     let currentPlayer = player1;
 
+    function addEventToPlayFields(){
+        const fieldList = document.querySelectorAll(".playing-field");
+        for (let i = 0; i < 9; i++){
+            fieldList[i].addEventListener("click", () => {
+                Gameboard.fillField(parseInt(input), currentPlayer.symbol);
+            });
+        };
+    };
+
     Gameboard.drawBoard();
-    for (i = 0; i < 9; i++){
+    for (let i = 0; i < 9; i++){
         let input = prompt(currentPlayer.name + ", your turn.");
-        Gameboard.fillField(parseInt(input), currentPlayer.symbol)
+        // Gameboard.fillField(parseInt(input), currentPlayer.symbol);
         Gameboard.drawBoard();
         if (Gameboard.checkForWin()){
             alert(currentPlayer.name + " wins!");
