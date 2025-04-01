@@ -58,7 +58,6 @@ const Gameboard = (function () {
 })();
 
 
-
 function createPlayer (name, symbol) {
     return {name, symbol}
 };
@@ -72,26 +71,23 @@ const Gameloop = (function() {
         const fieldList = document.querySelectorAll(".playing-field");
         for (let i = 0; i < 9; i++){
             fieldList[i].addEventListener("click", () => {
-                Gameboard.fillField(parseInt(input), currentPlayer.symbol);
+                Gameboard.fillField(parseInt(i), currentPlayer.symbol);
+                Gameboard.drawBoard();
+                if (Gameboard.checkForWin()){
+                    alert(currentPlayer.name + " wins!");
+                    return (true);
+                }; 
+                if (currentPlayer == player1){
+                    currentPlayer = player2;
+                } else {
+                    currentPlayer = player1;
+                };
             });
         };
     };
 
+    addEventToPlayFields();
     Gameboard.drawBoard();
-    for (let i = 0; i < 9; i++){
-        let input = prompt(currentPlayer.name + ", your turn.");
-        // replace with something to wait for player click
-        // Gameboard.fillField(parseInt(input), currentPlayer.symbol);
-        Gameboard.drawBoard();
-        if (Gameboard.checkForWin()){
-            alert(currentPlayer.name + " wins!");
-            return (true);
-        };
-        if (currentPlayer == player1){
-            currentPlayer = player2;
-        } else {
-            currentPlayer = player1;
-        };
-    }
+    
     // need to implement tie!
-});
+})();
