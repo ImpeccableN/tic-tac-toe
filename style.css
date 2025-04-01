@@ -9,6 +9,10 @@
 .grid-container > div {
     background-color: lightblue;
     border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 2rem;
 }
 
 .grid-container > div:hover {
