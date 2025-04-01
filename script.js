@@ -72,6 +72,7 @@ const Gameloop = (function() {
         for (let i = 0; i < 9; i++){
             fieldList[i].addEventListener("click", () => {
                 Gameboard.fillField(parseInt(i), currentPlayer.symbol);
+                fieldList[i].textContent = currentPlayer.symbol;
                 Gameboard.drawBoard();
                 if (Gameboard.checkForWin()){
                     alert(currentPlayer.name + " wins!");
